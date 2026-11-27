@@ -1,4 +1,0 @@
-index_http=200
-index_empty=yes
-index_body={   "version": 1,   "generated": "2026-11-27T10:14:31Z",   "uuids": {},   "names": {} } 
-cors=access-control-allow-origin: *
