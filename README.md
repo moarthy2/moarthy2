@@ -14,6 +14,11 @@ Live URLs:
 The initial sample uploads were used for the end-to-end pipeline test and then
 removed, so the live index is intentionally empty until you add capes.
 
+jsDelivr branch aliases are cached at the edge. After a change, `@main` can
+briefly serve an older index while GitHub Pages is already current; the mod uses
+Pages as the primary source and jsDelivr only as a fallback. Pinned commits and
+`@HEAD` resolve the current tree immediately.
+
 ## Layout
 
 ```text
