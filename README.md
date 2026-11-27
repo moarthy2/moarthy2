@@ -4,15 +4,15 @@ Public, static registry for the **Custom Capes** native Horizon mod. The registr
 serves one `index.json` and content-addressed PNG cape textures from GitHub Pages,
 with jsDelivr as a fallback mirror.
 
-Intended URLs (owner `moarthy2`; replace `moarthy2` if the deploying account
-differs):
+Live URLs:
 
+- Repository: <https://github.com/moarthy2/moarthy2>
 - Pages: <https://moarthy2.github.io/moarthy2/>
 - jsDelivr: <https://cdn.jsdelivr.net/gh/moarthy2/moarthy2@main/>
 - Index: <https://moarthy2.github.io/moarthy2/index.json>
 
-These URLs are not live until this repository is pushed to `main`, Pages is
-enabled, and the first workflow run succeeds.
+The initial sample uploads were used for the end-to-end pipeline test and then
+removed, so the live index is intentionally empty until you add capes.
 
 ## Layout
 
@@ -62,12 +62,19 @@ name-Steve
 Push it. The keys and any now-orphaned capes are removed, then `remove.txt` is
 deleted. `uploads/.gitkeep` and `uploads/remove.txt` are exempt from PNG checks.
 
-## Samples
+## Sample smoke test
 
-`uploads/name-sample.png` and `uploads/uuid-0123456789abcdef0123456789abcdef.png`
-are valid samples. The first successful workflow run will index them and remove
-the upload files. Remove the resulting entries with `remove.txt` if you only
-wanted to test the pipeline.
+Use any valid 64x32 or 128x64 PNG named for a UUID or offline name, for example:
+
+```text
+uploads/name-capetest.png
+uploads/uuid-0123456789abcdef0123456789abcdef.png
+```
+
+Push the file and wait for **Build capes**; the upload is converted to
+`capes/<hash16>.png`, added to `index.json`, and deleted from `uploads/`. Remove
+the test entry afterward with `remove.txt`. The initial sample files used for
+deployment testing were removed this way, leaving the live index empty.
 
 ## One-time repository setup
 
