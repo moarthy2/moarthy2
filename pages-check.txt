@@ -1,0 +1,5 @@
+index_http=200
+cape_http=200
+index_body={   "version": 1,   "generated": "2026-11-27T10:05:01Z",   "uuids": {     "0123456789abcdef0123456789abcdef": "054f1cb9ae46d2d7"   },   "names": {     "capetest": "9e50bf9bebda3052",     "sample": "7dd35e75fb8b8ce9"   } } 
+cape_sha256=9e50bf9bebda305289f2fa188f92eb9849c38a24e039e879f6edc829c4b96f16
+index_cors=access-control-allow-origin: *
