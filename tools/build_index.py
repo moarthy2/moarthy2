@@ -119,8 +119,12 @@ def prepare_uploads(root: Path, temp: Path) -> list[tuple[str, str, str, bytes, 
         return []
     prepared: list[tuple[str, str, str, bytes, Path]] = []
     for source in sorted(uploads.iterdir()):
-        if not source.is_file() or source.name in {".gitkeep", "remove.txt"}:
+        if source.name in {".gitkeep", "remove.txt"}:
+            if not source.is_file():
+                raise BuildError(f"{source.name}: must be a regular file")
             continue
+        if not source.is_file():
+            raise BuildError(f"{source.name}: must be a regular file")
         if source.suffix != ".png":
             raise BuildError(f"{source.name}: uploads must end in .png")
         kind, key = parse_key(source.stem)
